@@ -1,0 +1,535 @@
+/* RESET BÁSICO */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f0f2f5;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.app-container { 
+  display: flex; 
+  height: 100vh; 
+  width: 100vw; 
+}
+
+/* ======================================================
+   IZQUIERDA: CATÁLOGO
+====================================================== */
+.catalog-section {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.brand-title { 
+  color: #d32f2f; 
+  font-weight: 900; 
+  font-size: 1.8rem; 
+  letter-spacing: -1px; 
+}
+
+.logout-btn {
+  background: #333; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px;
+  border-radius: 8px; 
+  font-weight: bold; 
+  cursor: pointer; 
+  transition: all 0.2s;
+}
+
+.logout-btn:hover { 
+  background: #555; 
+}
+
+/* ======================================================
+   INPUTS GENERALES
+====================================================== */
+.search-input, 
+input[type="text"], 
+input[type="number"],
+textarea {
+  background-color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  color: #000000 !important;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: none;
+  outline: none;
+}
+
+/* ======================================================
+   GRID DE PRODUCTOS
+====================================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  padding-right: 5px;
+}
+
+/* TARJETAS DE PRODUCTO */
+.product-card {
+  background: white; 
+  border-radius: 12px; 
+  padding: 15px; 
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s; 
+  border: 1px solid transparent;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
+  height: 200px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.product-card:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+  border-color: #d32f2f; 
+}
+
+.product-card:active { 
+  transform: scale(0.98); 
+}
+
+.card-title { 
+  font-size: 0.9rem; 
+  font-weight: 600; 
+  color: #333; 
+  line-height: 1.2; 
+  margin-bottom: 5px; 
+}
+
+.card-price { 
+  font-size: 1.4rem; 
+  color: #2e7d32; 
+  font-weight: 800; 
+  margin-top: auto; 
+}
+
+.stock-badge { 
+  font-size: 0.75rem; 
+  color: #888; 
+  margin-top: 5px; 
+}
+
+.stock-badge.low { 
+  color: #d32f2f; 
+  font-weight: bold; 
+}
+
+/* BOTÓN SURTIR */
+.restock-btn {
+  margin-top: 8px; 
+  background-color: #e3f2fd; 
+  color: #1565c0;
+  border: 1px solid #90caf9; 
+  border-radius: 6px; 
+  cursor: pointer;
+  font-size: 0.85rem; 
+  padding: 6px; 
+  width: 100%; 
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.restock-btn:hover { 
+  background-color: #bbdefb; 
+  border-color: #64b5f6; 
+}
+
+/* ======================================================
+   DERECHA: TICKET
+====================================================== */
+.ticket-section {
+  flex: 1; 
+  background: white; 
+  display: flex; 
+  flex-direction: column;
+  border-left: 1px solid #e0e0e0; 
+  box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+  min-width: 320px;
+}
+
+.ticket-header { 
+  background: #d32f2f; 
+  color: white; 
+  padding: 20px; 
+  text-align: center; 
+}
+
+.ticket-items { 
+  flex: 1; 
+  overflow-y: auto; 
+  padding: 15px; 
+}
+
+.ticket-item { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 0; 
+  border-bottom: 1px dashed #ddd; 
+}
+
+.item-name { 
+  font-weight: 600; 
+  font-size: 0.9rem; 
+}
+
+.item-qty { 
+  color: #666; 
+  font-size: 0.85rem; 
+}
+
+.remove-btn {
+  background: #ffcdd2; 
+  color: #c62828; 
+  border: none; 
+  width: 24px; 
+  height: 24px;
+  border-radius: 50%; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  font-weight: bold; 
+  margin-left: 10px;
+}
+
+.ticket-footer { 
+  padding: 20px; 
+  background: #f9f9f9; 
+  border-top: 2px solid #e0e0e0; 
+}
+
+.total-row { 
+  display: flex; 
+  justify-content: space-between; 
+  font-size: 1.5rem; 
+  font-weight: 900; 
+  color: #333; 
+  margin-bottom: 15px; 
+}
+
+.pay-btn {
+  width: 100%; 
+  padding: 18px; 
+  background: #2e7d32; 
+  color: white; 
+  border: none;
+  border-radius: 10px; 
+  font-size: 1.1rem; 
+  font-weight: bold; 
+  cursor: pointer;
+  box-shadow: 0 4px 0 #1b5e20; 
+  transition: transform 0.1s;
+}
+
+.pay-btn:active { 
+  transform: translateY(4px); 
+  box-shadow: none; 
+}
+
+.pay-btn:disabled { 
+  background: #ccc; 
+  box-shadow: none; 
+  cursor: not-allowed; 
+}
+
+/* ======================================================
+   HISTORIAL
+====================================================== */
+.history-container {
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.history-table th {
+  text-align: left;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  color: #495057;
+}
+
+.history-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e9ecef;
+  color: #333;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badge.entrada { 
+  background-color: #e8f5e9; 
+  color: #2e7d32; 
+}
+
+.badge.salida { 
+  background-color: #ffebee; 
+  color: #c62828; 
+}
+
+.back-btn {
+  background: #666;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+/* ======================================================
+   LOGIN
+====================================================== */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f0f2f5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.login-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px red;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+
+}
+
+.login-input:focus {
+  border-color: #d32f2f;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.login-btn:hover {
+  background-color: #b71c1c;
+}
+
+input {
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ======================================================
+   FORMULARIO PRODUCTO
+====================================================== */
+.form-input {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: none;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.form-input:focus {
+  border: 2px solid #000000;
+}
+
+/* FILA PRECIO + STOCK */
+.row-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* ======================================================
+   RESPONSIVE DESIGN
+====================================================== */
+
+/* -------- TABLET (1024px hacia abajo) -------- */
+@media (max-width: 1024px) {
+
+  .catalog-section {
+    flex: 2;
+  }
+
+  .ticket-section {
+    flex: 1.2;
+    min-width: 280px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .product-card {
+    height: 180px;
+  }
+
+  .card-price {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* -------- CELULAR GRANDE (768px hacia abajo) -------- */
+@media (max-width: 768px) {
+
+  .app-container {
+    flex-direction: column;
+  }
+
+  .catalog-section {
+    flex: none;
+    height: 60vh;
+  }
+
+  .ticket-section {
+    flex: none;
+    height: 40vh;
+    min-width: 100%;
+    border-left: none;
+    border-top: 2px solid #e0e0e0;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .brand-title {
+    font-size: 1.4rem;
+  }
+
+  .total-row {
+    font-size: 1.2rem;
+  }
+
+  .pay-btn {
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  /* Precio y stock uno debajo del otro en móvil */
+  .row-inputs {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* -------- CELULAR PEQUEÑO (480px hacia abajo) -------- */
+@media (max-width: 480px) {
+
+  .product-card {
+    height: 160px;
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 0.8rem;
+  }
+
+  .card-price {
+    font-size: 1rem;
+  }
+
+  .ticket-header {
+    padding: 15px;
+  }
+
+  .ticket-footer {
+    padding: 15px;
+  }
+
+  .pay-btn {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .login-card {
+    padding: 1.5rem;
+  }
+
+}
