@@ -29,7 +29,7 @@ Asegurar de tener instalados los siguientes programas antes de ejecutar el proye
 
 ### 1. Configuración del Backend (API Laravel)
 
-Abre tu terminal, navega a la carpeta `backend` y ejecuta:
+Abrir la terminal, navegar a la carpeta `backend` y ejecutar:
 
 ```bash
 # Instalar dependencias de PHP
