@@ -39,7 +39,7 @@ composer install
 cp .env.example .env
 php artisan key:generate
 
-# Configurar tu base de datos en el archivo .env y luego correr migraciones
+# Configurar la base de datos en el archivo .env y luego correr migraciones
 php artisan migrate
 
 # Iniciar el servidor de desarrollo
